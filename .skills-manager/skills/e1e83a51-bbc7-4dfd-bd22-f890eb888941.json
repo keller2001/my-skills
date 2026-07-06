@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "e1e83a51-bbc7-4dfd-bd22-f890eb888941",
+  "path": "humanizer-zh",
+  "path_key": "humanizer-zh",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "skillssh",
+    "ref": "op7418/humanizer-zh/humanizer-zh",
+    "subpath": null,
+    "branch": null
+  }
+}
