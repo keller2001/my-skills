@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "48d7a693-463d-4a30-9907-cb40213c1d8f",
+  "path": "wewrite",
+  "path_key": "wewrite",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "skillssh",
+    "ref": "oaker-io/wewrite/wewrite",
+    "subpath": null,
+    "branch": null
+  }
+}

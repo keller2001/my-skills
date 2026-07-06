@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "121ddebd-7f61-4f2d-96ad-ee1dc6ae2a7b",
+  "path": "lark-sheets",
+  "path_key": "lark-sheets",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

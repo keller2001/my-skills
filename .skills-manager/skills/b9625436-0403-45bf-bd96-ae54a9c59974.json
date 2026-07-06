@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "b9625436-0403-45bf-bd96-ae54a9c59974",
+  "path": "lark-markdown",
+  "path_key": "lark-markdown",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
