@@ -8,6 +8,7 @@
     "antigravity": true,
     "claude_code": false,
     "codex": true,
-    "github_copilot": true
+    "github_copilot": true,
+    "workbuddy": true
   }
 }
