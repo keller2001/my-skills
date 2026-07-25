@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "d912a667-fab1-4e0b-92ac-752c91d6cab1",
+  "path": "task-model-router",
+  "path_key": "task-model-router",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
