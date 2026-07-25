@@ -1,7 +1,7 @@
 interface:
   display_name: "任务模型分级"
-  short_description: "按照任务难度、风险、可验证性和失败历史推荐合适的执行模型"
-  default_prompt: "使用 $task-model-router 在开始实质工作前推荐成本最低且足够可靠的模型。"
+  short_description: "按完整任务目标选模型，避免长任务中频繁切换"
+  default_prompt: "使用 $task-model-router 判断是否为真正的新任务；按完整目标推荐最低够用配置，同一任务继续时不重复分级。"
 
 policy:
   allow_implicit_invocation: true
