@@ -1,7 +1,7 @@
 interface:
   display_name: "任务模型分级"
-  short_description: "按完整任务目标选模型，避免长任务中频繁切换"
-  default_prompt: "使用 $task-model-router 判断是否为真正的新任务；按完整目标推荐最低够用配置，同一任务继续时不重复分级。"
+  short_description: "仅在用户主动调用时，按完整任务目标推荐模型与推理等级"
+  default_prompt: "调用 $task-model-router，帮我按照完整目标判断适合的模型和推理等级。"
 
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false
