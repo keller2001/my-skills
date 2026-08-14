@@ -1,0 +1,4 @@
+interface:
+  display_name: "吴颛个人写作"
+  short_description: "以 Fengge 为主风格，保留人工门禁并可选调用 WeWrite CLI"
+  default_prompt: "Use $manage-personal-writing to write in Wu Zhuan's Fengge-led personal style, stop at both user approval gates, and use the WeWrite CLI only when its optional backend capabilities help."
