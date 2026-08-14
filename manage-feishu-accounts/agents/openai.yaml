@@ -1,0 +1,4 @@
+interface:
+  display_name: "飞书账号路由"
+  short_description: "核对多个飞书租户、账号、机器人与 CLI 配置后再执行操作"
+  default_prompt: "使用 $manage-feishu-accounts 核对本次飞书操作应使用的租户、账号、机器人和 CLI 配置。"
