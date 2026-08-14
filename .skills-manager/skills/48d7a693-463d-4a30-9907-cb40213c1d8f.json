@@ -8,7 +8,7 @@
   "source": {
     "type": "skillssh",
     "ref": "oaker-io/wewrite/wewrite",
-    "subpath": null,
+    "subpath": "skills\\wewrite",
     "branch": null
   }
 }
