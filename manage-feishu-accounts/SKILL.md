@@ -1,85 +1,33 @@
 ---
 name: manage-feishu-accounts
-description: [TODO: Complete and informative explanation of what the skill does and when to use it. Include WHEN to use this skill - specific scenarios, file types, or tasks that trigger it.]
+description: 飞书多账号路由与授权核对。处理飞书文档、多维表格、审批、消息等操作前，用于确认手机号、账号、企业租户、机器人和本机 lark-cli profile，避免串号或写入错误租户。
 ---
 
-# Manage Feishu Accounts
+# 飞书多账号路由
 
-## Overview
+## 使用原则
 
-[TODO: 1-2 sentences explaining what this skill enables]
+1. 飞书操作前先根据用户指定的账号或企业匹配下表；不要仅凭显示名称推断租户。
+2. 使用 lark-cli 或飞书 Skills 时，始终显式传入对应 `--profile`。
+3. 写入、删除、审批、发送消息前，先运行对应 profile 的 `auth status --json --verify`，核对账号与租户。
+4. 缺少权限时只报告缺失权限及是否等待管理员审批，不切换到其他账号绕过。
+5. 浏览器开发者后台、应用机器人身份和 CLI 用户授权是不同层级，不能相互替代。
+6. 本 Skill 只保存路由信息；禁止记录 App Secret、访问令牌、刷新令牌或验证码。
 
-## Structuring This Skill
+## 账号与机器人映射
 
-[TODO: Choose the structure that best fits this skill's purpose. Common patterns:
+| 手机号 | 飞书账号 | 租户/企业 | 机器人应用 | App ID | lark-cli profile | 当前说明 |
+|---|---|---|---|---|---|---|
+| 18111885568 | 吴颛 | 贵州省驰昕教育科技有限公司 | 飞书 CLI | `cli_a943f70fe438dbda` | `chixin-feishu-cli` | 不改名；机器人与用户身份均可用。部分扩展权限等待公司管理员审批。 |
+| 18111885568 | 白木老实 | 白木老实个人租户 | 白木老实个人账号助手 | `cli_a941f1f2ee385bc3` | `cli_a941f1f2ee385bc3` | 个人账号机器人，版本 1.0.2，已启用。 |
+| 15123057399 | 白木老实 | 海口循道文化科技有限公司 | 陪伴数字人智能助手 | `cli_aaf582ff0db8dcbb` | `haikou-xundao-companion` | 版本 1.0.1；机器人与用户身份可用，部分权限等待管理员审批。 |
 
-**1. Workflow-Based** (best for sequential processes)
-- Works well when there are clear step-by-step procedures
-- Example: DOCX skill with "Workflow Decision Tree" -> "Reading" -> "Creating" -> "Editing"
-- Structure: ## Overview -> ## Workflow Decision Tree -> ## Step 1 -> ## Step 2...
+## 操作模板
 
-**2. Task-Based** (best for tool collections)
-- Works well when the skill offers different operations/capabilities
-- Example: PDF skill with "Quick Start" -> "Merge PDFs" -> "Split PDFs" -> "Extract Text"
-- Structure: ## Overview -> ## Quick Start -> ## Task Category 1 -> ## Task Category 2...
+先核验：
 
-**3. Reference/Guidelines** (best for standards or specifications)
-- Works well for brand guidelines, coding standards, or requirements
-- Example: Brand styling with "Brand Guidelines" -> "Colors" -> "Typography" -> "Features"
-- Structure: ## Overview -> ## Guidelines -> ## Specifications -> ## Usage...
+```powershell
+& "$env:APPDATA\npm\lark-cli.cmd" --profile <profile> auth status --json --verify
+```
 
-**4. Capabilities-Based** (best for integrated systems)
-- Works well when the skill provides multiple interrelated features
-- Example: Product Management with "Core Capabilities" -> numbered capability list
-- Structure: ## Overview -> ## Core Capabilities -> ### 1. Feature -> ### 2. Feature...
-
-Patterns can be mixed and matched as needed. Most skills combine patterns (e.g., start with task-based, add workflow for complex operations).
-
-Delete this entire "Structuring This Skill" section when done - it's just guidance.]
-
-## [TODO: Replace with the first main section based on chosen structure]
-
-[TODO: Add content here. See examples in existing skills:
-- Code samples for technical skills
-- Decision trees for complex workflows
-- Concrete examples with realistic user requests
-- References to scripts/templates/references as needed]
-
-## Resources (optional)
-
-Create only the resource directories this skill actually needs. Delete this section if no resources are required.
-
-### scripts/
-Executable code (Python/Bash/etc.) that can be run directly to perform specific operations.
-
-**Examples from other skills:**
-- PDF skill: `fill_fillable_fields.py`, `extract_form_field_info.py` - utilities for PDF manipulation
-- DOCX skill: `document.py`, `utilities.py` - Python modules for document processing
-
-**Appropriate for:** Python scripts, shell scripts, or any executable code that performs automation, data processing, or specific operations.
-
-**Note:** Scripts may be executed without loading into context, but can still be read by Codex for patching or environment adjustments.
-
-### references/
-Documentation and reference material intended to be loaded into context to inform Codex's process and thinking.
-
-**Examples from other skills:**
-- Product management: `communication.md`, `context_building.md` - detailed workflow guides
-- BigQuery: API reference documentation and query examples
-- Finance: Schema documentation, company policies
-
-**Appropriate for:** In-depth documentation, API references, database schemas, comprehensive guides, or any detailed information that Codex should reference while working.
-
-### assets/
-Files not intended to be loaded into context, but rather used within the output Codex produces.
-
-**Examples from other skills:**
-- Brand styling: PowerPoint template files (.pptx), logo files
-- Frontend builder: HTML/React boilerplate project directories
-- Typography: Font files (.ttf, .woff2)
-
-**Appropriate for:** Templates, boilerplate code, document templates, images, icons, fonts, or any files meant to be copied or used in the final output.
-
----
-
-**Not every skill requires all three types of resources.**
+随后所有实际命令继续显式使用同一个 `--profile <profile>`。若用户未说明要操作哪个企业或账号，先询问，不执行有外部影响的操作。
