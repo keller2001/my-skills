@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "dcfc3012-0e96-4943-91d7-75885889b071",
+  "path": "prepare-wechat-rich-text",
+  "path_key": "prepare-wechat-rich-text",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}

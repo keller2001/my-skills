@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "skill_id": "61626138-b8f3-4c26-9c8f-32314ee1ef18",
+  "path": "manage-personal-writing",
+  "path_key": "manage-personal-writing",
+  "enabled": true,
+  "tags": [],
+  "source": {
+    "type": "local",
+    "ref": null,
+    "subpath": null,
+    "branch": null
+  }
+}
