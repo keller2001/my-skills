@@ -1,4 +1,0 @@
-interface:
-  display_name: "吴颛个人写作总控"
-  short_description: "按吴颛个人风格总控文章策划、证据、审稿与人工确认门禁"
-  default_prompt: "Use $manage-personal-writing to plan and draft a personal article with evidence checks and human approval gates."
