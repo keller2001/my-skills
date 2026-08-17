@@ -1,0 +1,4 @@
+interface:
+  display_name: "公众号富文本编辑"
+  short_description: "本机离线编辑 article.md 并安全复制公众号富文本"
+  default_prompt: "Use $prepare-wechat-rich-text to open an existing article.md for local visual editing and WeChat rich-text copy."

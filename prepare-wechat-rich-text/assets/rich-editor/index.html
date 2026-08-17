@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>公众号富文本编辑器</title>
+  <link rel="stylesheet" href="/editor.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>公众号富文本编辑器</h1>
+      <p id="status" role="status">正在打开…</p>
+    </div>
+    <div class="actions">
+      <button id="rollback">回退上一版</button>
+      <button id="copy" class="primary">复制公众号富文本</button>
+      <button id="save-close" class="danger">保存并关闭</button>
+    </div>
+  </header>
+  <section id="recovery" class="recovery" aria-live="polite"></section>
+  <nav id="toolbar" aria-label="编辑工具栏">
+    <button data-command="undo">撤销</button><button data-command="redo">重做</button>
+    <button data-command="paragraph">正文</button>
+    <button data-command="h1">H1</button><button data-command="h2">H2</button><button data-command="h3">H3</button>
+    <button data-command="h4">H4</button><button data-command="h5">H5</button><button data-command="h6">H6</button>
+    <button data-command="strong"><strong>加粗</strong></button><button id="link">链接</button>
+    <button data-command="quote">引用</button><button data-command="bullet">无序列表</button>
+    <button data-command="ordered">有序列表</button><button data-command="hr">分隔线</button><button data-command="lift">减少缩进</button>
+    <button data-align="left">左对齐</button><button data-align="center">居中</button><button data-align="right">右对齐</button>
+    <button id="image">插入图片</button><button id="replace-image">替换图片</button>
+    <button id="image-up">图片上移</button><button id="image-down">图片下移</button><button id="delete-image">只删引用</button>
+  </nav>
+  <input id="image-input" type="file" accept="image/png,image/jpeg,image/gif,image/webp" multiple hidden>
+  <main class="workspace">
+    <section class="editor-panel">
+      <h2>编辑</h2>
+      <div id="editor" aria-label="文章编辑区"></div>
+    </section>
+    <section class="preview-panel">
+      <h2>最近一次成功复制预览</h2>
+      <iframe id="preview" title="隔离预览" sandbox=""></iframe>
+    </section>
+  </main>
+  <script src="/editor.bundle.js" defer></script>
+</body>
+</html>
