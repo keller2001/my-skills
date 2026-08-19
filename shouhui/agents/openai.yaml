@@ -1,0 +1,4 @@
+interface:
+  display_name: "手绘"
+  short_description: "将主题或材料制作成经过策划与复审的中文手绘知识卡片"
+  default_prompt: "使用 $shouhui 将下面的主题或材料制作成经过自审优化的中文手绘知识卡片。"
